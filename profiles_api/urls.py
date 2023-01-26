@@ -10,6 +10,7 @@ router = DefaultRouter()
 router.register('hello-viewset',views.HelloViewSet, base_name='hello-viewset') # register URL prefix we defined
                                                     # then register viewset we defined in views.py
                                                     # then specify the base name for our viewset
+router.register('profile', views.UserProfileViewSet)
 
 
 # create new list variable

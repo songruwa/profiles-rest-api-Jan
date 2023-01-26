@@ -5,6 +5,8 @@ from rest_framework import viewsets
 # use status in Post function
 from profiles_api import serializers # used to tell APIView what kind of data to expect when make post and patch data
 
+from profiles_api import models
+
 # Create your views here.
 class HelloApiView(APIView):
     """ Test API View """
@@ -118,3 +120,10 @@ class HelloViewSet(viewsets.ViewSet):
     def destroy(self, request, pk = None):
         """ Handle Removing an object"""
         return Response({'http_method':'DELETE'})
+
+
+
+class UserProfileViewSet(viewsets.ModelViewSet):
+    """ Handle creating and updating profiles """
+    serializer_class = serializers.UserProfileSerializer
+    queryset = models.UserProfile.objects.all() # 
